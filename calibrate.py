@@ -1,14 +1,29 @@
 import cv2
 from stereovision.calibration import StereoCalibrator
+from stereovision.ui_utils import calibrate_folder
 
-image = 'chessboard.png'
+input_folder = 'pictures/'
 
-height, width = cv2.imread(image).shape[:2]
-calibrator = StereoCalibrator(9, 6, 2.3, (width, height))
 
-img_left, img_right = cv2.imread(image), cv2.imread(image)
-calibrator.add_corners((img_left, img_right))
+class CalibrationInfo:
+    input_files = [
+        input_folder + '1-1.jpg',
+        input_folder + '1-2.jpg',
+        input_folder + '2-1.jpg',
+        input_folder + '2-2.jpg',
+        input_folder + '3-1.jpg',
+        input_folder + '3-2.jpg',
+        input_folder + '4-1.jpg',
+        input_folder + '4-2.jpg',
+    ]
 
-calibration = calibrator.calibrate_cameras()
+    def __init__(self, rows=9, columns=6, square_size=2.3,
+                 output_folder="calibration", show_chessboards=False):
+        self.rows = rows
+        self.columns = columns
+        self.square_size = square_size
+        self.output_folder = output_folder
+        self.show_chessboards = show_chessboards
 
-calibration.export('calibration/')
+
+calibrate_folder(CalibrationInfo())

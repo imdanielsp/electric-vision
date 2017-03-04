@@ -1,2 +1,4 @@
 .idea
-calibration
+*.npy
+*.jpg
+*.png
