@@ -5,6 +5,8 @@ import numpy as np
 
 from MotoControl import MotorController
 
+DEVICES_ID = [2, 0]
+
 ply_header = (
 '''ply
 format ascii 1.0
@@ -41,8 +43,8 @@ def z_to_ply(numbers, output_file):
 
 
 def run():
-    motor_controller = MotorController('/dev/cu.usbmodem14111')
-    sp = StereoPair([2, 1])
+    motor_controller = MotorController('/dev/cu.usbmodem14211')
+    sp = StereoPair(DEVICES_ID)
     block_matcher = StereoBM()
 
     camera_pair = CalibratedPair(None,
