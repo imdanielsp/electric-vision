@@ -71,7 +71,7 @@ def run():
         i += 1
 
         motor_state = False
-        if not current_value >= 6000:
+        if not current_value >= 3000:
             print current_value
             motor_state = True
         motor_controller.send(motor_state)
