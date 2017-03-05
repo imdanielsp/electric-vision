@@ -1,4 +1,4 @@
-# Electric Vision
+# Electric Vision A.K.A. EyeCam
 This is a project created at the UMass Lowell Hackathon (Hawkathon). 
 
 # UPDATE:
